@@ -2,11 +2,17 @@ version: '2.3'
 services:
   amazonlinux1:
     build:
-      context: ./
-      dockerfile: ./dockerfiles/amazonlinux-2018.03/Dockerfile
+      context: ./dockerfiles/amazonlinux-2018.03
+    network_mode: bridge
+  amazonlinux2:
+    build:
+      context: ./dockerfiles/amazonlinux2
     network_mode: bridge
   ubuntu1604:
     build:
-      context: ./
-      dockerfile: ./dockerfiles/ubuntu-16.04/Dockerfile
+      context: ./dockerfiles/ubuntu-16.04
+    network_mode: bridge
+  ubuntu1804:
+    build:
+      context: ./dockerfiles/ubuntu-18.04
     network_mode: bridge
