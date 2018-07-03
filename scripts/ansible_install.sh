@@ -18,7 +18,15 @@ function os_family_check {
     fi
 }
 
+function command_exists_check {
+    if type "${1}" > /dev/null 2>&1; then
+        echo "command ${1} exists. skip the installations."
+        exit 0
+    fi
+}
+
 os_family_check
+command_exists_check "ansible-playbook"
 
 if [[ -z "${OS_FAMILY}" ]]; then
     echo "this os is not supported, exit."
